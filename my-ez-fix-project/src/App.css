@@ -40,6 +40,12 @@ font-weight:bolder;
 	height: 100%;
 }
 
+#appcard{
+	
+	margin: 20px;
+	
+}
+
 @media (min-width: 1200px) {
 	.cards {
 		display: flex;

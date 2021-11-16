@@ -89,11 +89,11 @@ function BookAppointment({addAppointment}){
                 value={issue}
             >
                 <option>Subject?</option>
-                <option value="wedding">Maintenance</option>
-                <option value="family">Transmission</option>
-                <option value="maternity">Brakes</option>
-                <option value="portraits">Electrical</option>
-                <option value="portraits">Engine</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Transmission">Transmission</option>
+                <option value="Brakes">Brakes</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Engine">Engine</option>
             </Form.Select>
         </Form.Group>
 
