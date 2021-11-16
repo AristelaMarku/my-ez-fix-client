@@ -1,0 +1,65 @@
+@import url('https://marinosautorepair.com/wp-content/uploads/2020/05/69camero-min.jpg');
+
+#navbar a {
+	color: aliceblue;
+	text-decoration: none;
+}
+
+#text1{
+font-weight:bolder;	
+}
+
+#text2{
+	font-weight:bolder;	
+	color: black;
+	line-height: 2.8;
+
+	
+	}
+
+#title{
+	text-align: center;
+	font-size: 60px;
+}
+	
+
+#landing{
+	height: 94.3%;
+	width: 100%;
+	background: url('https://marinosautorepair.com/wp-content/uploads/2020/05/69camero-min.jpg');
+	background-size: cover;
+}
+
+#photocard {
+	list-style: none;
+	margin: 1rem;
+}
+#photocard img {
+	width: 100%;
+	object-fit: cover;
+	height: 100%;
+}
+
+@media (min-width: 1200px) {
+	.cards {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.card {
+		width: calc(33% - 2rem);
+	}
+}
+
+@media (min-width: 2200px) {
+	.card {
+		width: calc(25% - 2rem);
+	}
+}
+
+@media (min-width: 2100px) {
+	.card {
+		width: calc(20% - 2rem);
+	}
+}
+
