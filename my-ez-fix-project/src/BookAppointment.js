@@ -14,6 +14,9 @@ function BookAppointment({addAppointment}){
     const [startDate, setStartDate] = useState(" ")
     const [text,setText]=useState("")
     
+
+    // const [showForm,setShowForm]
+
     const[appointments,setAppointements]=useState([])
 
     const [edditAppointement,setEdditAppointment]=useState({})
@@ -63,7 +66,8 @@ function BookAppointment({addAppointment}){
     }
 
     function handleEdditAppointment(appointmentToEddit){
-        setEdditAppointment(appointmentToEddit)
+        
+        // setEdditAppointment(appointmentToEddit)
        }
 
        

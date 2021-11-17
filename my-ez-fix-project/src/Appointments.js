@@ -2,13 +2,13 @@ import AppointmentsCard from "./AppointmentsCard"
 
 function Appointments({appointments}){
    
-   const appointmentToRender= appointments.map((info)=>{
-       return <AppointmentsCard info={info}/>
-   })
+//    const appointmentToRender = appointments.map((info)=>{
+//        return <AppointmentsCard info={info}/>
+//    })
 
     return (
-
-        <div>{appointmentToRender}</div>
+        <div></div>
+        // <div>{appointmentToRender}</div>
     )
 }
 

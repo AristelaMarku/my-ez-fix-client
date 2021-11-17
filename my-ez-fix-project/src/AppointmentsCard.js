@@ -20,6 +20,7 @@ function AppointmentsCard ({info, deleteAppointment, handleEdditAppointment}){
   </ListGroup>
   <Card.Body>
     <Button variant="primary" onClick={()=>handleEdditAppointment(info)}>Eddit</Button>
+    
     <Button variant="danger" onClick={()=>deleteAppointment(id)}>Delete</Button>
   </Card.Body>
 </Card>
