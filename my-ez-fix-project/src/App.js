@@ -10,12 +10,7 @@ import { useState } from 'react';
 
 function App() {
   
-  const[appointments,setAppointements]=useState([])
-  console.log("app appointments",appointments)
-
-  function addAppointment(newAppointment){
-    setAppointements([...appointments,newAppointment])
-  }
+ 
 
   return (
   <div className="App">
@@ -29,11 +24,11 @@ function App() {
     </Route>
 
     <Route exact path="/bookappointments">
-    <BookAppointment addAppointment={addAppointment}/>
+    <BookAppointment />
     </Route>
 
     <Route exact path="/appointments">
-    <Appointments appointments={appointments}/>
+    <Appointments />
     </Route>
 
     <Route exact path="/">

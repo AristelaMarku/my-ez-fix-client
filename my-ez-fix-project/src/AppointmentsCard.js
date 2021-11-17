@@ -1,26 +1,10 @@
 import { Card,Button,ListGroupItem,ListGroup } from "react-bootstrap"
 
-function AppointmentsCard ({info}){
-    return(
-      <div id="appcard" >
-          {/* <h2>Name :{info.name}</h2>
-          <p>Issue :{info.issue}</p>
-          <p>Car Model:{info.carmodel}</p>
-          <p>Date:{}</p> */}
+function AppointmentsCard ({info, deleteAppointment, handleEdditAppointment}){
+  const{id}=info
 
-    {/* <Card style={{ width: '18rem' }}>
-    <Card.Body>
-    <Card.Title>Name :{info.name}</Card.Title>
-    <Card.Subtitle className="mb-2 text-muted">Issue :{info.issue}</Card.Subtitle>
-    <ListGroup variant="flush">
-    <ListGroup.Item>Cras justo odio</ListGroup.Item>
-    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-    </ListGroup>
-    <Button variant="primary">Eddit</Button>
-    <Button variant="danger">Delete</Button>
-  </Card.Body>
-</Card> */}
+  return(
+      <div id="appcard" >
 
 <Card style={{ width: '18rem' }}>
   <Card.Body>
@@ -31,12 +15,12 @@ function AppointmentsCard ({info}){
     <ListGroupItem>Email:{info.email}</ListGroupItem>
     <ListGroupItem>Car Model:{info.carmodel}</ListGroupItem>
     <ListGroupItem>Issue:{info.issue}</ListGroupItem>
-    <ListGroupItem>Date: {info.startDate.toDateString()}</ListGroupItem>
-    {/* <ListGroupItem>Date: {info.startDate}</ListGroupItem> */}
+    <ListGroupItem>Date: {info.startDate}</ListGroupItem>
+
   </ListGroup>
   <Card.Body>
-    <Button variant="primary">Eddit</Button>
-    <Button variant="danger">Delete</Button>
+    <Button variant="primary" onClick={()=>handleEdditAppointment(info)}>Eddit</Button>
+    <Button variant="danger" onClick={()=>deleteAppointment(id)}>Delete</Button>
   </Card.Body>
 </Card>
 
