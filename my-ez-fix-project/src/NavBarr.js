@@ -8,7 +8,7 @@ function NavBarr() {
         <Container>
           <Navbar.Brand >
             <NavLink to="/" exact>
-              EZ FIKS
+              EZ FIX
             </NavLink>
           </Navbar.Brand>
           <Nav className="justify-content-end">

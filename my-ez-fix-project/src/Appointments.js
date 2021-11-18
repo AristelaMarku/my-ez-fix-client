@@ -9,12 +9,17 @@ function Appointments() {
   const[newEmp, setNewEmp] = useState(false)
   const[quickView, setQuickView] = useState(false)
   const[cust,setCust] = useState(false)
-
+  const[showEach, setShowEach] = useState(false)
+  const[showSpecial, setShowSpecial] = useState(false)
+  
+  
   const[totals, setTotals] = useState([])
   const[staffList, setStaffList] = useState([])
   const[appts, setAppts] = useState([])
   const[custy,setCusty] = useState([])
   const[newStaff,setNewStaff] = useState([])
+  const[eachAppt, setEachAppt] = useState([])
+  const[special, setSpecial] = useState([])
 
 
   const[formData, setFormData] = useState({
@@ -23,24 +28,37 @@ function Appointments() {
     picture: '',
   })
 
+  const handleSpecial = e => {
+    fetch('http://localhost:9292/').then(r=>r.json()).then( specs => setSpecial(specs.num_mechanics_by_specialty))
+    setShowSpecial(!showSpecial)
+  }
+
+  const getAllMechAppointments = e => {
+    fetch('http://localhost:9292/').then(r=>r.json()).then( numbers => setEachAppt(numbers.each_mechanic_appointments))
+    setShowEach(!showEach)
+    console.log(eachAppt)
+  }
+
   const handleStats = e => {
     fetch('http://localhost:9292/').then(r=>r.json()).then( numbers => setTotals(numbers))
     setStats(!stats)
     setQuickView(false)
     setCust(false)
     setEmps(false)
-
   }
   const handleEmps = e => {
     fetch('http://localhost:9292/mechanics').then(r => r.json()).then(mechans => setStaffList(mechans))
     setEmps(!emps)
     setQuickView(false)
     setCust(false)
+    setNewEmp(false)
+
   }
   const handleView = e => {
     fetch('http://localhost:9292/appointments').then(r => r.json()).then(appt => setAppts(appt))
     setQuickView(!quickView)
     setEmps(false)
+    setNewEmp(false)
     setCust(false)
   }
   const handleCust = e => {
@@ -48,6 +66,8 @@ function Appointments() {
     setCust(!cust)
     setEmps(false)
     setQuickView(false)
+    setNewEmp(false)
+
   }
 
   const handleFire = id => {
@@ -88,7 +108,8 @@ function Appointments() {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
   const HandleSubmit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    console.log("HELOO")
     HandleNewEmp(formData)
   }
 
@@ -136,8 +157,17 @@ function Appointments() {
             {}
           </ul> */}
           <Button variant="outline-dark" onClick={addNewEmp}>Add new employee</Button>
+          <Button variant="outline-dark" onClick={handleSpecial}>Show Number of mechanics by specialty</Button>
+          {showSpecial ? 
+            <div>
+              {Object.keys(special).map(function(keyName, keyIndex) {
+                return <ul>{keyName} Mechanics: {keyIndex}</ul>
+              })}
+              </div> 
+              : <div> </div>}
+            
           <div id="mech=appts">
-              {/* {totals.each_mechanic_appointments[0]} */}
+
           </div>
         </div>
         :
@@ -187,10 +217,12 @@ function Appointments() {
           </Form>
           </Row>
           </Container>
-        </div>
+          </div>
           :
           <div></div>
         }
+
+
         {/* QUICKVIEW OF APPTS */}
         {
           quickView ?
@@ -198,6 +230,18 @@ function Appointments() {
             <h2 id="tablehedder">All Appointments</h2>
            <Tableappo appts={appts}/>
 
+           All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)}
+           <button onClick={getAllMechAppointments}>Show each mech appt</button>
+            {showEach ? 
+            <ol>
+              {Object.keys(eachAppt).map(function(keyName, keyIndex) {
+                return <ul>{keyName} currently has {keyIndex} appointments.</ul>
+              })}
+             </ol> 
+             : 
+             <div></div>
+            }
+            
           </div>
           :
           <div></div>
