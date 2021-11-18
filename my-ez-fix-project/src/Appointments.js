@@ -1,5 +1,6 @@
 import { useState } from "react";
-//import { Button ,Form,Row,Container} from "react-bootstrap";
+import { Button ,Form,Row,Container} from "react-bootstrap";
+
 
 function Appointments() {
   const [stats, setStats] = useState(false)
@@ -62,10 +63,12 @@ function Appointments() {
 
   const addNewEmp = e => {
     setNewEmp(!newEmp)
+    
   }
 
 
   const HandleNewEmp = (newEmp) => {
+   
     fetch('http://localhost:9292/mechanics',{
       method: "POST",
       headers: {'Content-Type':'application/json'},
@@ -93,42 +96,45 @@ function Appointments() {
     <div>
 
       <div id="biz-totals">
-        <button onClick = {handleStats}>View Dashboard!</button>
+      <Button variant="dark" size="lg" onClick = {handleStats}>
+      View Dashboard!
+      </Button>
+      
         {stats ? <div id="totals">
 
         <div id="tot-cust">
           <h3>Total Customers</h3>
           <div id="all-cust">{totals.all_customers}</div>
-          <button onClick={handleCust}>Manage Customers</button>
+          <Button variant="outline-dark" onClick={handleCust}>Manage Customers</Button>
         </div>
 
         <div id="tot-appt">
           <h3>Total Appointments</h3>
           <div id="all-appt">{totals.all_appointments}</div>
-          <button onClick = {handleView}>Manage appointments</button>
+          <Button variant="outline-dark" onClick = {handleView}>Manage appointments</Button>
         </div>
 
         <div id="tot-mech">
           <h3>Total Mechanics</h3>
           <div id="all-mech">{totals.all_mechanics}</div>
-          <button onClick ={handleEmps}>Manage Staff</button>
+          <Button variant="outline-dark" onClick ={handleEmps}>Manage Staff</Button>
         </div>
 
         </div> : <div>Press 'Manage' to see business totals</div>}
       </div>
-      <div id="emp-list">
+      <div id="emplist">
         {/* EMPLOYEE  LIST */}
         {
         emps ?
         <div id="emp-list">
           <h3>Current Employees:</h3>
           <ul id="staff">
-            {staffList.map(staff =>  <div id="staff-list">{staff.name} <button onClick = {() => handleFire(staff.id)}>Fire Employee</button> </div>)}
+            {staffList.map(staff =>  <div id="staff-list">{staff.name} <Button variant="outline-secondary"size="sm" onClick = {() => handleFire(staff.id)}>Fire Employee</Button> </div>)}
           </ul>
           {/* <ul id="special">
             {}
           </ul> */}
-          <button onClick={addNewEmp}>Add new employee</button>
+          <Button variant="outline-dark" onClick={addNewEmp}>Add new employee</Button>
           <div id="mech=appts">
               {/* {totals.each_mechanic_appointments[0]} */}
           </div>
@@ -140,26 +146,55 @@ function Appointments() {
         {
           newEmp ?
           <div>
-            <form onSubmit={HandleSubmit}>
-              <ul>
-                <label>Enter new mechanic name:</label>
-                    <input type="text" name='name' value={formData.name} onChange={HandleChange}></input>
-                <label>Enter mechanic specialty:</label>
-                    <input type="text" name="specialty" value={formData.specialty} onChange={HandleChange}></input>
-                <label>Insert picture url:</label>
-                    <input type="text" name='picture' value={formData.picture} onChange={HandleChange}></input>
-                <button>Hire Employee!</button>
-              </ul>
-            </form>
-          </div>
+          <Container className="p-5">
+          <h1>
+          Add new employee
+          </h1>
+          <Row className="mb-3">
+          <Form onSubmit={HandleSubmit}>
+          <Form.Group className="mb-3">
+          <Form.Label>Enter new mechanic name:</Form.Label>
+              
+              <Form.Control
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={HandleChange}
+              />
+             </Form.Group>
+             <Form.Group className="mb-3">
+             <Form.Label>Enter mechanic specialty:</Form.Label>
+            
+              <Form.Control
+                type="text"
+                name="specialty"
+                value={formData.specialty}
+                onChange={HandleChange}
+              />
+              </Form.Group>
+              <Form.Group className="mb-3">
+              <Form.Label>Insert picture url:</Form.Label>
+              <Form.Control
+                type="text"
+                name="picture"
+                value={formData.picture}
+                onChange={HandleChange}
+              />
+               </Form.Group>
+              <Button variant="outline-dark">Hire Employee!</Button>
+            
+          </Form>
+          </Row>
+          </Container>
+        </div>
           :
           <div></div>
         }
         {/* QUICKVIEW OF APPTS */}
         {
           quickView ?
-          <div>
-            All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)}
+          <div id="appoList">
+           All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)}
             {/* {totals.completed_appointments} */}
           </div>
           :
@@ -168,7 +203,7 @@ function Appointments() {
         {/* QUICKVIEW OF CUSTOMERS */}
         {
           cust ?
-          <div>All Customers:{custy.map(customer => <li>Customer Name:{customer.name},Customer E-mail:{customer.email}, Customer Phone number: {customer.phone_number}</li>)}</div>
+          <div id="costomerList">All Customers:{custy.map(customer => <li>Customer Name:{customer.name},Customer E-mail:{customer.email}, Customer Phone number: {customer.phone_number}</li>)}</div>
           :
           <div></div>
         }

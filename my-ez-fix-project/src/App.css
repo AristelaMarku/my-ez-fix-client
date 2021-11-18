@@ -34,6 +34,8 @@
 }
 #emp-list{
 	border-style: inset;
+	text-align: center;
+	
 }
 #all-cust{
 	font-size: 60px;
@@ -158,10 +160,10 @@
 	background-color: whitesmoke;	
 }
 
-#staff-list{
+/* #staff-list{
 
 	padding-left: 50%;
-}
+} */
 #staffhead{
 	padding-left: 45%;
 }
@@ -173,4 +175,12 @@
 	bottom: 2px;
 	top: 4px;
 	
+}
+
+#appoList{
+	padding-left: 20px;
+	
+}
+#costomerList{
+	padding-left: 20px;
 }
