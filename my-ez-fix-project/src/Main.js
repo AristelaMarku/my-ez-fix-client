@@ -5,6 +5,14 @@ return(
   <Container>
   <Row>
   <Col md={4}>
+    <div>
+    <h4>John says:</h4>
+    <p>"EZ Fix is the best shop I have ever been to! The mechanics really know their stuff and always give the BEST price!</p>
+    <h4>Donna says:</h4>
+      <p>"The hype about EZ Fix is real, I got an oil change in less than 10 minutes! I have never been to a quicker auto shop."</p>
+      <h4>Willy says:</h4>
+      <p>"Man, Jim Jones swapped my whole transmission for only $25!! I dont even know what to say, THANK YOU EZ Fix!!"</p>
+    </div>
   </Col>
   <Col md={{ span: 4, offset: 4 }}>
 <div id="text">

@@ -6,7 +6,7 @@ function NavBarr() {
     <>
       <Navbar bg="dark" variant="dark" id="navbar">
         <Container>
-          <Navbar.Brand>
+          <Navbar.Brand >
             <NavLink to="/" exact>
               EZ FIKS
             </NavLink>

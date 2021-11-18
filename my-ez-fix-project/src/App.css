@@ -196,3 +196,48 @@ font-weight: bolder;
 font-family:Georgia, 'Times New Roman', Times, serif;
 
 }
+
+#tableCost{
+	/* table-layout: fixed; */
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 15px;
+	text-align: left;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	font-family: sans-serif;
+	margin: 25px 0;
+    font-size: 1.02em;
+	
+}
+#tableCost thead {
+	background-color: grey;
+    color: #ffffff;
+    text-align: left;
+	padding: 4px;
+
+}
+
+#tableCost,td,th{
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+
+#bodytable{
+	border: 1px solid black;
+    border-collapse: collapse;
+}
+/* #content{
+	border: 1px solid black;
+    border-collapse: collapse;
+} */
+
+td, th {
+	border: 1px solid black;
+	padding: 0.5rem;
+  }
+
+  #tablehedder{
+	  padding-left: 10px;
+	  font-family: Georgia, 'Times New Roman', Times, serif;
+  }

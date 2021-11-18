@@ -1,7 +1,7 @@
 import { Container,Row,Form,Col,Button } from "react-bootstrap"
 import { useState} from "react";
 
-function Newpostform({addAppointment,isEditing}){
+function Newpostform({addAppointment}){
 
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")

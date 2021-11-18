@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button ,Form,Row,Container} from "react-bootstrap";
-
+import Tableappo from "./Tableappo"
+import Tableofcostomer from "./Tableofcostomer"
 
 function Appointments() {
   const [stats, setStats] = useState(false)
@@ -194,8 +195,9 @@ function Appointments() {
         {
           quickView ?
           <div id="appoList">
-           All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate.split(0,3)}</li>)}
-            {/* {totals.completed_appointments} */}
+            <h2 id="tablehedder">All Appointments</h2>
+           <Tableappo appts={appts}/>
+
           </div>
           :
           <div></div>
@@ -203,7 +205,11 @@ function Appointments() {
         {/* QUICKVIEW OF CUSTOMERS */}
         {
           cust ?
-          <div id="costomerList">All Customers:{custy.map(customer => <li>Customer Name:{customer.name},Customer E-mail:{customer.email}, Customer Phone number: {customer.phone_number}</li>)}</div>
+          <div id="costomerList">
+            <h2 id="tablehedder">All Customers</h2>
+            <Tableofcostomer custy={custy}/>
+          </div>
+          // {custy.map(customer => <li>Customer Name:{customer.name},Customer E-mail:{customer.email}, Customer Phone number: {customer.phone_number}</li>)}
           :
           <div></div>
         }

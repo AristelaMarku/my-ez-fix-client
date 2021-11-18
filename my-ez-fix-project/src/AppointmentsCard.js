@@ -32,7 +32,7 @@ function AppointmentsCard({
             variant="outline-primary"
             onClick={() => setIsEditing((isEditing) => !isEditing)}
           >
-            Go To Eddit
+           Edit/Add
           </Button>
           <Button
             variant="outline-dark"
