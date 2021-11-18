@@ -112,7 +112,7 @@ function Edditpatchform({edditAppointement,appointments, setAppointements}){
         </Form.Group>
 
         <Form.Group className="mb-3">
-        <Form.Label>Pick a Date</Form.Label>
+        <Form.Label>Pick a Date</Form.Label><br />
        
         <input 
         id="date"
