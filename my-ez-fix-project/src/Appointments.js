@@ -7,35 +7,64 @@ function Appointments() {
   const[newEmp, setNewEmp] = useState(false)
   const[quickView, setQuickView] = useState(false)
   const[cust,setCust] = useState(false)
+
   const[totals, setTotals] = useState([])
   const[staffList, setStaffList] = useState([])
   const[appts, setAppts] = useState([])
   const[custy,setCusty] = useState([])
   const[newStaff,setNewStaff] = useState([])
+
+
   const[formData, setFormData] = useState({
     name: '',
     specialty: '',
     picture: '',
   })
+
   const handleStats = e => {
     fetch('http://localhost:9292/').then(r=>r.json()).then( numbers => setTotals(numbers))
     setStats(!stats)
+    setQuickView(false)
+    setCust(false)
+    setEmps(false)
+
   }
   const handleEmps = e => {
     fetch('http://localhost:9292/mechanics').then(r => r.json()).then(mechans => setStaffList(mechans))
     setEmps(!emps)
+    setQuickView(false)
+    setCust(false)
   }
   const handleView = e => {
     fetch('http://localhost:9292/appointments').then(r => r.json()).then(appt => setAppts(appt))
     setQuickView(!quickView)
+    setEmps(false)
+    setCust(false)
   }
   const handleCust = e => {
     fetch('http://localhost:9292/customers').then(r => r.json()).then(data => setCusty(data))
     setCust(!cust)
+    setEmps(false)
+    setQuickView(false)
   }
+
+  const handleFire = id => {
+    const updateMechanic = staffList.filter(
+      (mechanic) => mechanic.id != id
+    );
+    setStaffList(updateMechanic);
+    fetch(`http://localhost:9292/mechanics/${id}`, {
+      method: "DELETE", 
+      headers: {"Content-Type":"application/json"}
+    })
+  }
+
+
   const addNewEmp = e => {
     setNewEmp(!newEmp)
   }
+
+
   const HandleNewEmp = (newEmp) => {
     fetch('http://localhost:9292/mechanics',{
       method: "POST",
@@ -49,6 +78,8 @@ function Appointments() {
       alert('New Employee hired.')
     })
   }
+
+
   const HandleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
@@ -56,27 +87,33 @@ function Appointments() {
     e.preventDefault();
     HandleNewEmp(formData)
   }
+
+
   return (
     <div>
 
       <div id="biz-totals">
         <button onClick = {handleStats}>View Dashboard!</button>
         {stats ? <div id="totals">
+
         <div id="tot-cust">
           <h3>Total Customers</h3>
           <div id="all-cust">{totals.all_customers}</div>
           <button onClick={handleCust}>Manage Customers</button>
         </div>
+
         <div id="tot-appt">
           <h3>Total Appointments</h3>
           <div id="all-appt">{totals.all_appointments}</div>
           <button onClick = {handleView}>Manage appointments</button>
         </div>
+
         <div id="tot-mech">
           <h3>Total Mechanics</h3>
           <div id="all-mech">{totals.all_mechanics}</div>
           <button onClick ={handleEmps}>Manage Staff</button>
         </div>
+
         </div> : <div>Press 'Manage' to see business totals</div>}
       </div>
       <div id="emp-list">
@@ -86,11 +123,11 @@ function Appointments() {
         <div id="emp-list">
           <h3>Current Employees:</h3>
           <ul id="staff">
-            {staffList.map(staff =>  <div id="staff-list">{staff.name}</div>)}
+            {staffList.map(staff =>  <div id="staff-list">{staff.name} <button onClick = {() => handleFire(staff.id)}>Fire Employee</button> </div>)}
           </ul>
-          <ul id="special">
+          {/* <ul id="special">
             {}
-          </ul>
+          </ul> */}
           <button onClick={addNewEmp}>Add new employee</button>
           <div id="mech=appts">
               {/* {totals.each_mechanic_appointments[0]} */}
