@@ -50,6 +50,7 @@ function Edditpatchform({edditAppointement,appointments, setAppointements, isEdi
             })
             setAppointements(updateAppoiToRender)
              })
+             e.target.reset()
     }
 
     return(

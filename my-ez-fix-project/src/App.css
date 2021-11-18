@@ -105,11 +105,15 @@
 #photocard {
   list-style: none;
   margin: 1rem;
+  text-align: center;
 }
 #photocard img {
   width: 100%;
   object-fit: cover;
   height: 100%;
+}
+#photocard h2{
+	font-family:  Georgia, 'Times New Roman', Times, serif;
 }
 
 #appcard {
@@ -183,4 +187,12 @@
 }
 #costomerList{
 	padding-left: 20px;
+}
+
+#titleStaff{
+text-align: center;
+padding-top: 20px;
+font-weight: bolder;
+font-family:Georgia, 'Times New Roman', Times, serif;
+
 }

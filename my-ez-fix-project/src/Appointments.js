@@ -76,7 +76,7 @@ function Appointments() {
     })
     .then(r=>r.json())
     .then(data => {
-      setNewStaff([newEmp, ...newStaff])
+      setStaffList([...staffList, data])
       setFormData({name:'', specialty:'', picture:'' })
       alert('New Employee hired.')
     })
@@ -181,7 +181,7 @@ function Appointments() {
                 onChange={HandleChange}
               />
                </Form.Group>
-              <Button variant="outline-dark">Hire Employee!</Button>
+              <Button variant="outline-dark" type="submit">Hire Employee!</Button>
             
           </Form>
           </Row>
@@ -194,7 +194,7 @@ function Appointments() {
         {
           quickView ?
           <div id="appoList">
-           All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)}
+           All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate.split(0,3)}</li>)}
             {/* {totals.completed_appointments} */}
           </div>
           :
