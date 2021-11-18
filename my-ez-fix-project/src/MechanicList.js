@@ -11,7 +11,7 @@ function MechanicList(){
 			.then((r) => r.json())
 			.then((data) => {
                 console.log(data)
-                setStaffData(data.mechanics)});
+                setStaffData(data)});
 	}, []);
 
     const renderStaff=staffData.map((photo)=>{

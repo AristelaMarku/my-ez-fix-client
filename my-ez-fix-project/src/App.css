@@ -1,4 +1,4 @@
-@import url('https://marinosautorepair.com/wp-content/uploads/2020/05/69camero-min.jpg');
+@import url('https://www.wallpaperbetter.com/wallpaper/136/602/458/skoda-bw-pit-mechanic-engine-hd-1080P-wallpaper.jpg');
 
 #navbar a {
 	color: aliceblue;
@@ -7,6 +7,7 @@
 
 #text1{
 font-weight:bolder;	
+color: black;
 }
 
 #text2{
@@ -77,6 +78,7 @@ font-weight:bolder;
 #title{
 	text-align: center;
 	font-size: 60px;
+	color: black;
 }
 	
 
@@ -102,6 +104,16 @@ font-weight:bolder;
 	margin: 20px;
 	
 }
+
+#date{
+  
+  padding: 8px 20px;
+  margin: 8px 10px;
+  border: 1px ridge #D4D4D4;
+  border-radius: 3px;
+}
+
+
 
 @media (min-width: 1200px) {
 	.cards {

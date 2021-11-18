@@ -1,8 +1,14 @@
 import { Card,Button,ListGroupItem,ListGroup } from "react-bootstrap"
 
-function AppointmentsCard ({info, deleteAppointment, handleEdditAppointment}){
-  const{id}=info
+function AppointmentsCard ({info, deleteAppointment, handleEdditAppointment, isEditing, setIsEditing}){
+  const{id,startDate}=info
 
+  const formatDate = (string) => {
+    var options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(string).toUTCString('en-US', options).slice(0,17);
+  }
+
+  console.log("date",formatDate(startDate))
   return(
       <div id="appcard" >
 
@@ -15,12 +21,12 @@ function AppointmentsCard ({info, deleteAppointment, handleEdditAppointment}){
     <ListGroupItem>Email:{info.email}</ListGroupItem>
     <ListGroupItem>Car Model:{info.carmodel}</ListGroupItem>
     <ListGroupItem>Issue:{info.issue}</ListGroupItem>
-    <ListGroupItem>Date: {info.startDate}</ListGroupItem>
+    <ListGroupItem>Date: {formatDate(startDate)}</ListGroupItem>
 
   </ListGroup>
   <Card.Body>
-    <Button variant="primary" onClick={()=>handleEdditAppointment(info)}>Eddit</Button>
-    
+    <Button variant="primary" onClick={() => setIsEditing((isEditing) => !isEditing)}>Go To Eddit</Button>
+    <Button variant="secondary" onClick={()=>handleEdditAppointment(info)}>Eddit</Button>
     <Button variant="danger" onClick={()=>deleteAppointment(id)}>Delete</Button>
   </Card.Body>
 </Card>
