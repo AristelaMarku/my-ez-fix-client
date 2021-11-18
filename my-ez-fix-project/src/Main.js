@@ -1,13 +1,71 @@
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-
+import {useState} from 'react'
 function Main (){
+
+    const [stats, setStats] = useState(false)
+    const[emps, setEmps] = useState(false)
+    const[newEmp, setNewEmp] = useState(false)
+
+
+    const[totals, setTotals] = useState([])
+    const[staffList, setStaffList] = useState([])
+    const[newStaff,setNewStaff] = useState([])
+    const[formData, setFormData] = useState({
+      name: '',
+      specialty: '',
+      picture: '',
+    })
+
+    const handleStats = e => {
+      fetch('http://localhost:9292/').then(r=>r.json()).then( numbers => setTotals(numbers))
+      setStats(!stats)
+    }
+
+    const handleEmps = e => {
+      fetch('http://localhost:9292/mechanics').then(r => r.json()).then(mechans => setStaffList(mechans))
+      setEmps(!emps)
+    }
+
+    const addNewEmp = e => {
+      setNewEmp(!newEmp)
+    }
+
+
+    const HandleNewEmp = (newEmp) => {
+      fetch('http://localhost:9292/mechanics',{
+        method: "POST",
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(newEmp)
+      })
+      .then(r=>r.json())
+      .then(data => {
+        setNewStaff([newEmp, ...newStaff])
+        setFormData({name:'', specialty:'', picture:'' })
+        alert('New Employee hired.')
+      })
+    }
+
+
+    const HandleChange = (e) => {
+      setFormData({...formData, [e.target.name]: e.target.value})
+    }
+
+    const HandleSubmit = (e) => {
+      e.preventDefault();
+      HandleNewEmp(formData)
+    }
+
+
 
     return (
         
-        <div id="position-relative" id="landing">
-        <Container className="p-5">
-        <Card className="bg-dark text-white" style={{ width: '25rem', height: '20rem' }}>
-  <Card.Img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PDw8PDw8PDw0PDw8PDw8PDw8PDw0PFRUWFhURFRUYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0NFQ0NFS0ZFRktKys3LSstKystLSstKy0tLS0tLS0tLS0tNzcrNzctNy0tNzc3LTc3LS0tNy03LTctLf/AABEIAPcAzAMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAAAAQf/xAAVEAEBAAAAAAAAAAAAAAAAAAAAAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A15QRQRQAAAAAAABAAUAAAAAAAAAAAAAERQFBFAEUAAAAAAQAFRUUAEBQAAAABAAUAEAQVQAAAAAABAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQVQAAAABARRQAQAFEUAAAAAAEAAAAEUFAAABAAAAUAAAAAAAAAAAEABQAQAFAAABAAUAAAAAAAAAEABQAAAQAAAFAAAAAAAAABAAAAUAAAAAEAAAAABQAAAQAAAFAAAAAAAAAAABAAUAEABQRQABACCgigAAAAAAAAAAAAACAAoCAoAAABAAABBQAAAAAAAAAABFAAAEUAAAAEAIAAKAAAAACAAoAIACgAAAgAKAgKAIACgAAAAAgAKAAAAAAACAAAAoAAAIACgAAigAAAAAAAAAAAAAACKAAAIoAAAAgAAAKAACAiiAKAKioAogIogCgCgAgAD//2Q==" alt="Card image" style={{ width: '25rem', height: '30rem' }} />
+        <div id="position-relative" >
+          <div id="landing">
+            <Container className="p-5">
+            </Container>
+          </div>
+        {/* <Card className="bg-dark text-white position-absolute bottom-0 end-0 " style={{ width: '30rem', height: '57.3rem' }}> */}
+  {/* <Card.Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Z915ng1HISMMiKraTnXbSVYorAQ-lYqCfg&usqp=CAU" alt="Card image" />
   <Card.ImgOverlay>
     <Card.Title id="title">EZ Fiks</Card.Title>
     <Card.Text id="text1">
@@ -17,8 +75,8 @@ function Main (){
     If you’re having problems with your vehicle, we invite you to call our friendly team today. 
     Honest quality service is our top priority.
     </Card.Text>
-  </Card.ImgOverlay>
-</Card>
+  </Card.ImgOverlay> */}
+{/* </Card> */}
 {/* <Card className="bg-dark text-white position-absolute bottom-0 start-0 " style={{ width: '25rem' }}>
   <Card.Img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR03f-oSsBfYwk9vXFVT7m5XT7AXaoUztvNJA&usqp=CAU" alt="Card image" />
   <Card.ImgOverlay>
@@ -31,7 +89,61 @@ function Main (){
   </Card.ImgOverlay>
 </Card> */}
 
-        </Container>
+       
+
+        <div id="biz-totals">
+
+          <button onClick = {handleStats}>Manage</button>
+        
+          {stats ? <div id="totals"> 
+          Total Customers:<div id="tot-cust">{totals.all_customers}</div>
+          Total number of appointments:<div id="tot-appt">{totals.all_appointments}</div>
+          Mechanics on payroll:<div id="tot-mech">
+
+            {totals.all_mechanics}
+            <button onClick ={handleEmps}>Show all employees</button>
+            </div> 
+
+          </div> : <div>Press 'Manage' to see business totals</div>}
+
+        </div>
+        <div id="emp-list">
+          
+          {
+          emps ?
+          <div>
+            Current Employees:{staffList.map(staff =>  <div id="staff-list">{staff.name}</div>)}
+            <button onClick={addNewEmp}>Add new employee</button>
+          </div>  
+          :  
+          <div></div>
+          }
+
+          {
+            newEmp ?
+            <div>
+              <form onSubmit={HandleSubmit}>
+
+                <ul>
+
+                  <label>Enter new mechanic name:</label>
+                      <input type="text" name='name' value={formData.name} onChange={HandleChange}></input>
+                  <label>Enter mechanic specialty:</label>
+                      <input type="text" name="specialty" value={formData.specialty} onChange={HandleChange}></input>
+                  <label>Insert picture url:</label>
+                      <input type="text" name='picture' value={formData.picture} onChange={HandleChange}></input>
+
+                  <button>Hire Employee!</button>
+                </ul>
+
+              </form>
+            </div>
+            :
+            <div></div>
+          }
+
+
+        </div>
     </div>
 );
 }

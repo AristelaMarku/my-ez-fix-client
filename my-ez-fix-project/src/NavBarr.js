@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBarr(){
     return (
+        
         <>
          <Navbar bg="dark" variant="dark" id="navbar">
     <Container>

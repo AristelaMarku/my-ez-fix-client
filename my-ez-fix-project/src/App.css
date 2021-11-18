@@ -17,7 +17,40 @@ color: black;
 
 	
 	}
+#biz-totals{
+	margin-top: 25%;
+}
+#totals{
+	font-size: larger;
+	column-count: 3;
+}
+#tot-appt{
+	border-style: inset;
+	text-align: center;
 
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+
+}
+#tot-cust{
+	border-style: inset;
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+	text-align: center;
+
+
+}
+#tot-mech{
+	border-style: inset;
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+	text-align: center;
+	font-size: 75%;
+	font-display: 50%;
+}
 #title{
 	text-align: center;
 	font-size: 60px;
@@ -26,9 +59,10 @@ color: black;
 	
 
 #landing{
-	height: 94.3%;
-	width: 100%;
-	background: url('https://www.wallpaperbetter.com/wallpaper/136/602/458/skoda-bw-pit-mechanic-engine-hd-1080P-wallpaper.jpg');
+	/* height: 25%; */
+	/* width: 100%; */
+	/* margin-top: 25%; */
+	background: url('https://marinosautorepair.com/wp-content/uploads/2020/05/69camero-min.jpg');
 	background-size: cover;
 }
 
