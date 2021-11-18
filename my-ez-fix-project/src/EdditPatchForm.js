@@ -1,7 +1,7 @@
 import { Container,Row,Form,Col,Button } from "react-bootstrap"
 import { useState,useEffect} from "react";
 
-function Edditpatchform({edditAppointement,appointments, setAppointements}){
+function Edditpatchform({edditAppointement,appointments, setAppointements, isEditing}){
     const { id } = edditAppointement
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")
@@ -56,7 +56,7 @@ function Edditpatchform({edditAppointement,appointments, setAppointements}){
     <div>
         <Container>
     <Row className="px-5">
-    <h1>Book Appointment</h1>
+    {!isEditing ?( <h1>Edit Appointment</h1>) : ( <h1>Book Appointment</h1>)}
     
     <Form  onSubmit={handleSubmit}>
         <Row className="mb-3">

@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Container, Row, Form, Col, Button } from "react-bootstrap";
 import AppointmentsCard from "./AppointmentsCard";
 import Edditpatchform from "./EdditPatchForm";
 
@@ -29,7 +28,7 @@ function BookAppointment({ addAppointment }) {
 
   const deleteAppointment = (id) => {
     const updateAppointment = appointments.filter(
-      (appointment) => appointment.id != id
+      (appointment) => appointment.id !== id
     );
     setAppointements(updateAppointment);
     fetch(`http://localhost:9292/appointments/${id}`, {
@@ -60,12 +59,13 @@ function BookAppointment({ addAppointment }) {
       <div className="row">
         <div className="col-8">
           {isEditing ? (
-            <Newpostform addAppointment={addAppointment} />
+            <Newpostform addAppointment={addAppointment} isEditing={isEditing}/>
           ) : (
             <Edditpatchform
               edditAppointement={edditAppointement}
               appointments={appointments}
               setAppointements={setAppointements}
+              isEditing={isEditing}
             />
           )}
         </div>

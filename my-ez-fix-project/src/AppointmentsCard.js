@@ -38,7 +38,7 @@ function AppointmentsCard({
             variant="outline-dark"
             onClick={() => handleEdditAppointment(info)}
           >
-            Eddit
+            Edit
           </Button>
           <Button variant="outline-danger" onClick={() => deleteAppointment(id)}>
             Delete

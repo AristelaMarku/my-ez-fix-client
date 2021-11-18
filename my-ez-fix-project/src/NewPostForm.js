@@ -1,7 +1,7 @@
 import { Container,Row,Form,Col,Button } from "react-bootstrap"
 import { useState} from "react";
 
-function Newpostform({addAppointment}){
+function Newpostform({addAppointment,isEditing}){
 
     const [name,setName]=useState("")
     const [email,setEmail]=useState("")
@@ -38,7 +38,8 @@ return (
 <div>
 <Container>
     <Row className="px-5">
-    <h1>Book Appointment</h1>
+        <h1>Book Appointment</h1>
+    
     
     <Form  onSubmit={handleSubmit}>
         <Row className="mb-3">
