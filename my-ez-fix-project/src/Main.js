@@ -164,7 +164,7 @@ function Main (){
             quickView ? 
             <div>
               All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)}
-              {totals.completed_appointments}
+              {/* {totals.completed_appointments} */}
             </div>
             :
             <div></div>
