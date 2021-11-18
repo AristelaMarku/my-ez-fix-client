@@ -17,51 +17,74 @@ font-weight:bolder;
 	
 	}
 #biz-totals{
-	margin-top: 25%;
+	
 }
+#emp-list{
+	border-style: inset;
+}
+#all-cust{
+	font-size: 60px;
+	border-style: inset;
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+	text-align: center;
+}
+#all-appt{
+	font-size: 60px;
+
+	border-style: inset;
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+	text-align: center;
+}
+#all-mech{
+	font-size: 60px;
+
+	border-style: inset;
+	border-radius: 50%;
+	width:100px;
+	height:100px;
+	text-align: center;
+}
+
 #totals{
 	font-size: larger;
 	column-count: 3;
 }
-#tot-appt{
+/* #tot-appt{
 	border-style: inset;
 	text-align: center;
-
 	border-radius: 50%;
 	width:100px;
 	height:100px;
 
-}
-#tot-cust{
-	border-style: inset;
-	border-radius: 50%;
-	width:100px;
-	height:100px;
-	text-align: center;
+} */
+/* #tot-cust{
+	
 
 
-}
-#tot-mech{
+} */
+/* #tot-mech{
 	border-style: inset;
 	border-radius: 50%;
 	width:100px;
 	height:100px;
 	text-align: center;
-	font-size: 75%;
-	font-display: 50%;
-}
+	
+} */
 #title{
 	text-align: center;
 	font-size: 60px;
 }
 	
 
-#landing{
-	/* height: 25%; */
-	/* width: 100%; */
-	/* margin-top: 25%; */
-	background: url('https://marinosautorepair.com/wp-content/uploads/2020/05/69camero-min.jpg');
-	background-size: cover;
+#header{
+	height: 600px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
 #photocard {
