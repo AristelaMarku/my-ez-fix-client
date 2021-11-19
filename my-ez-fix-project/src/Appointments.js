@@ -115,7 +115,7 @@ function Appointments() {
 
 
   return (
-    <div>
+    <div id="mainmanage">
 
       <div id="biz-totals">
       <Button variant="dark" size="lg" onClick = {handleStats}>

@@ -1,5 +1,5 @@
 function Tableappo({ appts }) {
- 
+  
   const cellofTable=appts.map((appointments)=>{
       return(
         <tr id="bodytable">

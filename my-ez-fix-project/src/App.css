@@ -8,11 +8,14 @@
 	background-color: #191919;
 	margin: 20px;
 	padding: 30px;
+	border: 1px solid white;
+	
 }
 
 #text1 {
-  font-weight: bolder;
   color:whitesmoke;
+  text-align: center;
+  
   
 }
 
@@ -20,14 +23,19 @@
   font-weight: bolder;
   color:whitesmoke;
   line-height: 2.8;
+  text-align: center;
+  font-family: "Century Gothic",Verdana,sans-serif;
+  
   
 }
 
 #footer{
 	position: absolute; 
 	bottom: 5px; 
-	color: white;
-	
+	}
+
+#footer1{
+color: yellow;
 	}
 #biz-totals{
 	text-align: center;
@@ -39,29 +47,33 @@
 }
 #comments{
 	display: inline;
+	
 }
 .guar{
 	color:white;
 	font-size: 20px;
 	text-align: center;
+	
 }
 .tee{
 	color:white;
 	font-weight: bold;
 	text-align: center;
 	font-size: 30px;
+	
 }
 .box{
-	width: 300px;
+	width: 500px;
 	margin: 50px auto;
-	border: 4px solid white;
-	padding: 20px;
+	border: 1px solid white;
+	padding: 5px;
 	text-align: center;
 	font-weight: 900;
 	color: white;
 	background-color:#191919 ;
 	font-family: arial;
 	position: relative;
+	box-shadow: 3px 3px 5px white;
 }
 .sb3:before {
 	content: "";
@@ -79,6 +91,7 @@
   
   
   
+  
 #all-cust{
 	font-size: 60px;
 	border-style:inset;
@@ -86,6 +99,8 @@
 	width:100px;
 	height:100px;
 	text-align: center;
+	margin-left: 150px;
+	margin-bottom: 10px;
 }
 #all-appt{
 	font-size: 60px;
@@ -95,6 +110,8 @@
 	width:100px;
 	height:100px;
 	text-align: center;
+	margin-left: 150px;
+	margin-bottom: 10px;
 }
 #rolls{
 	position: absolute;
@@ -111,12 +128,21 @@
 	width:100px;
 	height:100px;
 	text-align: center;
+	margin-left: 150px;
+	margin-bottom: 10px;
+
 }
 
 #totals{
 	font-size: larger;
 	column-count: 3;
+	margin-top: 20px;
+	flex: 33.33%;
 }
+/* #all-cust{
+	
+} */
+
 #title{
 	text-align: center;
 	font-size: 60px;
@@ -140,6 +166,7 @@
   text-align: center;
   font-size: 60px;
   color: black;
+   font-family: sans-serif;
 }
 
 #landing{
@@ -201,6 +228,7 @@
 
 #manageText1{
 	padding: 5px;
+	border: 1px solid white;
 }
 
 #marginbutton1{
@@ -220,11 +248,32 @@
 #staffhead{
 	padding-left: 45%;
 }
-#ase{
+#footer2{
+	position:relative;
+    min-width: 200px;
+	bottom: -95px;
+	
+}
+#ase1{
 	/* position:; */
-	margin-left: 180%;
-	float:inline-end;
+	position:absolute;
+    width: 100px;
 	height: 100px;
+    top: 0;
+    left: 1000px;
+	
+	
+	
+}
+
+#ase2{
+	position:absolute;
+    width: 100px; 
+	height: 100px;   
+    top: 0;
+    right: 0;
+	
+
 }
 #praise-1{
 	font-weight: bold;
