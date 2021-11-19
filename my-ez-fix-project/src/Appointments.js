@@ -31,6 +31,7 @@ function Appointments() {
   const handleSpecial = e => {
     fetch('http://localhost:9292/').then(r=>r.json()).then( specs => setSpecial(specs.num_mechanics_by_specialty))
     setShowSpecial(!showSpecial)
+    setNewEmp(false)
   }
 
   const getAllMechAppointments = e => {
@@ -52,6 +53,7 @@ function Appointments() {
     setQuickView(false)
     setCust(false)
     setNewEmp(false)
+    setShowSpecial(false)
 
   }
   const handleView = e => {
@@ -108,7 +110,7 @@ function Appointments() {
     setFormData({...formData, [e.target.name]: e.target.value})
   }
   const HandleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     console.log("HELOO")
     HandleNewEmp(formData)
   }
@@ -158,12 +160,14 @@ function Appointments() {
           </ul> */}
           <Button variant="outline-dark" onClick={addNewEmp}>Add new employee</Button>
           <Button variant="outline-dark" onClick={handleSpecial}>Show Number of mechanics by specialty</Button>
+          
           {showSpecial ? 
             <div>
+              
               {Object.keys(special).map(function(keyName, keyIndex) {
                 return <ul>{keyName} Mechanics: {keyIndex}</ul>
               })}
-              </div> 
+            </div> 
               : <div> </div>}
             
           <div id="mech=appts">
@@ -230,12 +234,12 @@ function Appointments() {
             <h2 id="tablehedder">All Appointments</h2>
            <Tableappo appts={appts}/>
 
-           All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)}
-           <button onClick={getAllMechAppointments}>Show each mech appt</button>
+           {/* All Appointments:{appts.map(appointment => <li>Customer Name:{appointment.name}, Appointment Date:{appointment.startDate}</li>)} */}
+           <button onClick={getAllMechAppointments}>Show how many appointments per mechanic</button>
             {showEach ? 
             <ol>
               {Object.keys(eachAppt).map(function(keyName, keyIndex) {
-                return <ul>{keyName} currently has {keyIndex} appointments.</ul>
+                return <ul><strong>{keyName}</strong> currently has <strong>{keyIndex}</strong> appointments.</ul>
               })}
              </ol> 
              : 
