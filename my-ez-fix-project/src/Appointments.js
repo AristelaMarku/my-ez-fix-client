@@ -142,7 +142,7 @@ function Appointments() {
           <Button variant="outline-dark" onClick ={handleEmps}>Manage Staff</Button>
         </div>
 
-        </div> : <div>Press 'Manage' to see business totals</div>}
+        </div> : <div><img id ="rolls" src ="https://pictures.topspeed.com/IMG/crop/200909/2010-rolls-royce-ghost-20_800x0w.jpg"/></div>}
       </div>
       <div id="emplist">
         {/* EMPLOYEE  LIST */}

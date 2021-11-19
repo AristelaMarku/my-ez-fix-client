@@ -15,18 +15,29 @@ return(
       <h1>The EZ Fix  Guarantee:</h1>
       <h2>"If your not happy with your service or if anything goes wrong with your vehicle within 7 days after your visit, IT'S YOUR MONEY BACK!!"</h2>
     </div> */}
+     
   <Container>
+     
   <Row>
+      
   <Col md={4}>
-    <div>
-    <h4>John says:</h4>
-    <p>"EZ Fix is the best shop I have ever been to! The mechanics really know their stuff and always give the BEST price!</p>
-    <h4>Donna says:</h4>
-      <p>"The hype about EZ Fix is real, I got an oil change in less than 10 minutes! I have never been to a quicker auto shop."</p>
-      <h4>Willy says:</h4>
-      <p>"Man, Jim Jones swapped my whole transmission for only $25!! I dont even know what to say, THANK YOU EZ Fix!!"</p>
+    
+    <div id="comments">
+      <div class="box sb3">
+          <h4>Willy says:</h4>
+          <p>"Man, Jim Jones swapped my whole transmission for only $25!! I dont even know what to say, THANK YOU EZ Fix!!"</p>
+      </div>
+      <div class = "box sb3">
+        <h4>John says:</h4>
+        <p>"EZ Fix is the best shop I have ever been to! The mechanics really know their stuff and always give the BEST price!</p>
+      </div>
+      <div class ="box sb3">
+      <h4>Donna says:</h4>
+        <p>"The hype about EZ Fix is real, I got an oil change in less than 10 minutes! I have never been to a quicker auto shop."</p>
+      </div>
+      
     </div>
-  </Col>
+   </Col>
   <Col md={{ span: 4, offset: 4 }}>
 <div id="text">
 <h1 id="text2">EZ Fix</h1>
@@ -36,10 +47,12 @@ return(
     The app includes a way to book appointments and an interactive dashboard to help manager keep up with their busy day to day. 
     Get rid of spreadsheets and physcial records with EZ Fix Manager! 
 </p>
-
 </div>
 
+<h1 class="tee">The EZ Fix  Guarantee:</h1>
+<h2 class="guar">"If your not happy with your service or if anything goes wrong with your vehicle within 7 days after your visit, IT'S YOUR MONEY BACK!!"</h2>
 </Col>
+
 </Row>
 <div id="footer">
 
